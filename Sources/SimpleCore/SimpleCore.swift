@@ -105,16 +105,31 @@ public class SimpleCore{
         }
     }
     
-    public func delete(option: String){
-
+    public func delete(option: String, attr: String, value: AnyHashable){
         let context = persistentContainer.viewContext
-        let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
-        let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: request)
         do
         {
             if option == "all" {
                 try context.execute(deleteRequest)
                 try context.save()
+            }
+            else if option == "single" {
+                do {
+                    let result = try context.fetch(request)
+                    for data in result as! [NSManagedObject] {
+                        if data.value(forKey: attr) as! AnyHashable == value {
+                            context.delete(data)
+                        }
+                    }
+                    try context.save()
+
+                    
+                } catch {
+                    
+                    print("Failed")
+                }
             }
             else {
                 print("Wrong option, available option: \n 1. all")
