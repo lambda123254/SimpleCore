@@ -26,7 +26,7 @@ public class SimpleCore{
         let unsortedVal = value.split(separator: ",").map{ String($0) }
         var sortedVal = [Any]()
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd hh:mm:ss Z"
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss Z"
         for i in 0 ..< unsortedVal.count {
             if unsortedVal[i].description.isNumeric {
                 if unsortedVal[i].contains("."){
@@ -58,6 +58,7 @@ public class SimpleCore{
             }
             else {
                 sortedVal.append(unsortedVal[i])
+                
             }
         }
         let managedContext =
@@ -71,7 +72,6 @@ public class SimpleCore{
 
         for i in 0 ..< attrArr.count {
             object.setValue(sortedVal[i], forKeyPath: String(attrArr[i]))
-            print(sortedVal[i])
         }
         do {
             try managedContext.save()
@@ -140,6 +140,25 @@ public class SimpleCore{
         {
             print ("There was an error")
         }
+    }
+    
+    public func getData() -> [NSManagedObject]{
+        let context = persistentContainer.viewContext
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
+        var dataReturn: [NSManagedObject] = []
+        request.returnsObjectsAsFaults = false
+        do {
+            let result = try context.fetch(request)
+            for data in result as! [NSManagedObject] {
+                dataReturn.append(data)
+            }
+            
+        } catch {
+            
+            print("Failed")
+        }
+        return dataReturn
+        
     }
     
 }
