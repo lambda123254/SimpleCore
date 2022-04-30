@@ -13,7 +13,7 @@ Future function (in development):
 1. Update data function
 2. Delete specific data
 
-Supported Save Data Type:
+Supported Saved Data Type:
 - String
 - Integer
 - Double
