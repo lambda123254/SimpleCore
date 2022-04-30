@@ -3,7 +3,7 @@ import UIKit
 import CoreData
 
 @available(iOS 10.0, *)
-public class SimpleCoreTest {
+public class SimpleCore{
     var entity: String
     var coreDataName: String
     lazy var persistentContainer: NSPersistentContainer = {
