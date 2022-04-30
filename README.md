@@ -8,6 +8,7 @@ Usable function:
 1. Save data
 2. Show data (first data, last data, and all data only)
 3. Delete data
+4. Get NSManagedObject data
 
 Future function (in development):
 1. Update data function
@@ -36,10 +37,14 @@ let simpleCore = SimpleCore(entity: "your entity name", coreData: "your core dat
 
 Showing Data
 ```
-simpleCore.showData(option: "all") -- to show all data
-simpleCore.showData(option: "first") -- to show first data
-simpleCore.showData(option: "last") -- to show last data
+simpleCore.showData(option: "all") //to show all data
+simpleCore.showData(option: "first") // to show first data
+simpleCore.showData(option: "last") // to show last data
 
+```
+Get Data
+```
+let datas = simpleCore.getData() //to assign object to array to be used in table view, array, etc.
 ```
 
 Deleting Data
