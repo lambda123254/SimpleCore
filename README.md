@@ -23,7 +23,11 @@ Future function (in development):
 6. Done
 
 # Syntax
-Before you use the library, make sure you already create an instance of SimpleCore(entity: "your entity name", coreData: "your core data name").
+Before you use the library, make sure you already create an instance.
+```
+let yourDesiredName = SimpleCore(entity: "your entity name", coreData: "your core data name")
+```
+
 
 Showing Data
 ```
