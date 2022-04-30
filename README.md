@@ -23,7 +23,10 @@ Future function (in development):
 6. Done
 
 # Syntax
-Before you use the library, make sure you already create an instance of SimpleCore().
+Before you use the library, make sure you already create an instance of SimpleCore(entity: "your entity name", coreData: "your core data name").
 
-showData function:
-simpleCore.showData(option: <#T##String#>)
+simpleCore.showData(option: "all") -- to show all data
+simpleCore.showData(option: "first") -- to show first data
+simpleCore.showData(option: "last") -- to show last data
+simpleCore.insert
+
