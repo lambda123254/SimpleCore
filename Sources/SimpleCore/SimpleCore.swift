@@ -2,9 +2,20 @@ import Foundation
 import UIKit
 import CoreData
 
+@available(iOS 10.0, *)
 public class SimpleCore {
     var entity: String
     var classAttr = [String]()
+    
+    lazy var persistentContainer: NSPersistentContainer = {
+        let container = NSPersistentContainer(name: "TestApp")
+        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+            if let error = error as NSError? {
+                fatalError("Unresolved error \(error), \(error.userInfo)")
+            }
+        })
+        return container
+    }()
     
     public init(entity: String) {
         self.entity = entity
@@ -25,14 +36,8 @@ public class SimpleCore {
                 sortedVal.append(unsortedVal[i])
             }
         }
-                
-        guard let appDelegate =
-            UIApplication.shared.delegate as? AppDelegate else {
-            return
-          }
-
         let managedContext =
-        appDelegate.persistentContainer.viewContext
+        persistentContainer.viewContext
         let entity =
         NSEntityDescription.entity(forEntityName: entity,
                                    in: managedContext)!
@@ -51,8 +56,7 @@ public class SimpleCore {
     }
     
     public func showData(option: String){
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
+        let context = persistentContainer.viewContext
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
         request.returnsObjectsAsFaults = false
         do {
@@ -78,7 +82,7 @@ public class SimpleCore {
     
     public func delete(option: String){
 
-        let context = ( UIApplication.shared.delegate as! AppDelegate ).persistentContainer.viewContext
+        let context = persistentContainer.viewContext
         let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
         do
