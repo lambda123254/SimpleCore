@@ -25,8 +25,23 @@ Future function (in development):
 # Syntax
 Before you use the library, make sure you already create an instance of SimpleCore(entity: "your entity name", coreData: "your core data name").
 
+Showing Data
+```
 simpleCore.showData(option: "all") -- to show all data
 simpleCore.showData(option: "first") -- to show first data
 simpleCore.showData(option: "last") -- to show last data
-simpleCore.insert
+
+```
+
+Deleting Data
+```
+simplecore.delete(option: "all") -- to delete all data
+
+```
+Inserting Data
+```
+simplecore.insert(into: "attribute1,attribute2,...", value: "value1,value2,...") -- to insert data
+
+```
+
 
