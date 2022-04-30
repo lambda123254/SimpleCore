@@ -11,7 +11,6 @@ Usable function:
 
 Future function (in development):
 1. Update data function
-2. Delete specific data
 
 Supported Saved Data Type:
 - String
