@@ -2,7 +2,7 @@ import Foundation
 import UIKit
 import CoreData
 
-class SimpleCore {
+public class SimpleCore {
     var entity: String
     var classAttr = [String]()
     
