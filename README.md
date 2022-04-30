@@ -14,4 +14,16 @@ Future function (in development):
 2. Update data function
 3. Delete specific data
 
+# Installation
+1. In your app project go to your package dependencies
+2. Click + Sign
+3. Enter https://github.com/lambda123254/SimpleCore.git URL in search bar on top right of the menu
+4. Click add package
+5. Add this line on top of your desired controller "import SimpleCore"
+6. Done
 
+# Syntax
+Before you use the library, make sure you already create an instance of SimpleCore().
+
+showData function:
+simpleCore.showData(option: <#T##String#>)
