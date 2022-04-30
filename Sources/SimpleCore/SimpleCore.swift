@@ -3,7 +3,7 @@ import UIKit
 import CoreData
 
 @available(iOS 10.0, *)
-public class SimpleCore {
+public class SimpleCoreTest {
     var entity: String
     var coreDataName: String
     lazy var persistentContainer: NSPersistentContainer = {
@@ -25,11 +25,35 @@ public class SimpleCore {
         let attrArr = into.components(separatedBy: ",")
         let unsortedVal = value.split(separator: ",").map{ String($0) }
         var sortedVal = [Any]()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd hh:mm:ss Z"
         for i in 0 ..< unsortedVal.count {
             if unsortedVal[i].description.isNumeric {
-                if let changeVal = Int(unsortedVal[i]) {
+                if unsortedVal[i].contains("."){
+                    if let changeVal = Double(unsortedVal[i]) {
+                        sortedVal.append(changeVal)
+                    }
+                }
+                else {
+                    if let changeVal = Int(unsortedVal[i]) {
+                        sortedVal.append(changeVal)
+                    }
+                }
+            }
+            else if unsortedVal[i] == "false" {
+                if let changeVal = Bool(unsortedVal[i]) {
                     sortedVal.append(changeVal)
-
+                }
+                
+            }
+            else if unsortedVal[i] == "true" {
+                if let changeVal = Bool(unsortedVal[i]) {
+                    sortedVal.append(changeVal)
+                }
+            }
+            else if (dateFormatter.date(from: unsortedVal[i]) != nil){
+                if let changeVal = dateFormatter.date(from: unsortedVal[i]) {
+                    sortedVal.append(changeVal)
                 }
             }
             else {
@@ -47,6 +71,7 @@ public class SimpleCore {
 
         for i in 0 ..< attrArr.count {
             object.setValue(sortedVal[i], forKeyPath: String(attrArr[i]))
+            print(sortedVal[i])
         }
         do {
             try managedContext.save()
