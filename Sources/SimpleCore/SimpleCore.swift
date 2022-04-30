@@ -5,10 +5,9 @@ import CoreData
 @available(iOS 10.0, *)
 public class SimpleCore {
     var entity: String
-    var classAttr = [String]()
-    
+    var coreDataName: String
     lazy var persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "TestApp")
+        let container = NSPersistentContainer(name: coreDataName)
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
@@ -17,8 +16,9 @@ public class SimpleCore {
         return container
     }()
     
-    public init(entity: String) {
+    public init(entity: String, coreData: String) {
         self.entity = entity
+        self.coreDataName = coreData
     }
     
     public func insert(into: String, value: String){
