@@ -5,14 +5,20 @@ SimpleCore is a simple Core Data library which provide simple function to Create
 This library is not perfect and still in development, there are some features which were already implemented. This library meant for simple app.
 
 Usable function:
-1. Save data (string and integer only for now)
+1. Save data
 2. Show data (first data, last data, and all data only)
 3. Delete data (all data only)
 
 Future function (in development):
-1. Save data (Bool, Date)
-2. Update data function
-3. Delete specific data
+1. Update data function
+2. Delete specific data
+
+Supported Save Data Type:
+- String
+- Integer
+- Double
+- Date
+- Boolean
 
 # Installation
 1. In your app project go to your package dependencies
