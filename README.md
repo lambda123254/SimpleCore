@@ -7,7 +7,7 @@ This library is not perfect and still in development, there are some features wh
 Usable function:
 1. Save data
 2. Show data (first data, last data, and all data only)
-3. Delete data (all data only)
+3. Delete data
 
 Future function (in development):
 1. Update data function
@@ -31,7 +31,7 @@ Supported Saved Data Type:
 # Syntax
 Before you use the library, make sure you already create an instance.
 ```
-let yourDesiredName = SimpleCore(entity: "your entity name", coreData: "your core data name")
+let simpleCore = SimpleCore(entity: "your entity name", coreData: "your core data name")
 ```
 
 
@@ -45,12 +45,13 @@ simpleCore.showData(option: "last") -- to show last data
 
 Deleting Data
 ```
-simplecore.delete(option: "all") -- to delete all data
+simpleCore.delete(option: "all", attr: "", value: "") -- to delete all data
+simpleCore.delete(option: "single", attr: "your attribute name", value: "value which you want to delete") -- to delete certain value
 
 ```
 Inserting Data
 ```
-simplecore.insert(into: "attribute1,attribute2,...", value: "value1,value2,...") -- to insert data
+simpleCore.insert(into: "attribute1,attribute2,...", value: "value1,value2,...") -- to insert data
 
 ```
 
