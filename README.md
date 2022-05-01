@@ -44,7 +44,10 @@ simpleCore.showData(option: "last") // to show last data
 ```
 Get Data
 ```
-let datas = simpleCore.getData() //to assign object to array to be used in table view, array, etc.
+for data in simpleCore.getData() {
+  yourArray.append(yourStructClass(yourAttributes: data.value(forKey: "yourCoreDataAttributes"), .... )
+}
+// simpleCore.getData() returns NSManagedObject
 ```
 
 Deleting Data
