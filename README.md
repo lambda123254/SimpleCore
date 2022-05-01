@@ -45,7 +45,7 @@ simpleCore.showData(option: "last") // to show last data
 Get Data
 ```
 for data in simpleCore.getData() {
-  yourArray.append(yourStructClass(yourAttributes: data.value(forKey: "yourCoreDataAttributes"), .... )
+  yourArray.append(yourStructClass(yourAttributes: data.value(forKey: "yourCoreDataAttributes"), .. )
 }
 // simpleCore.getData() returns NSManagedObject
 ```
