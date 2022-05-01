@@ -53,7 +53,7 @@ for data in simpleCore.getData() {
 Deleting Data
 ```
 simpleCore.delete(option: "all", attr: "", value: "") -- to delete all data
-simpleCore.delete(option: "single", attr: "your attribute name", value: "value which you want to delete") -- to delete certain value
+simpleCore.delete(option: "single", attr: "your attribute name", value: "value which you want to delete") // to delete certain object where value is filled
 
 ```
 Inserting Data
